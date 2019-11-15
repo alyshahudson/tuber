@@ -21,6 +21,30 @@ def get_uber_csv(session, model, url):
     reader = csv.DictReader(stream)
     return list(reader)
 
+@app.route('/api/update_emails')
+def update_emails():
+    badges = db.session.query(Badge).all()
+    for badge in badges:
+        if not badge.uber_id:
+            continue
+        try:
+            req = {
+                "method": "attendee.search",
+                "params": [
+                    badge.uber_id
+                ]
+            }
+            resp = requests.post(config['uber_api_url'], headers=headers, json=req)
+            if len(resp.json()['result']) == 0:
+                return jsonify(success=False)
+            print("Updating badge {} from {} to {}".format(badge.id, badge.email, resp.json()['result'][0]['email']))
+            badge.email = resp.json()['result'][0]['email']
+            db.session.add(badge)
+        except:
+            return jsonify(success=False)
+    db.session.commit()
+    return jsonify(success=True)
+    
 def run_staff_import(email, password, url, event):
     session = requests.Session()
     session.post(url+"/accounts/login", data={"email": email, "password": password, "original_location": "homepage"})
@@ -71,7 +95,7 @@ def run_staff_import(email, password, url, event):
                     last_name = attendee['last_name'],
                     legal_name = attendee['legal_name'],
                     legal_name_matches = bool(attendee['legal_name']),
-                    email = user.email,
+                    email = attendee['email'],
                     user_id = user.id
                 )
                 db.session.add(badge)
