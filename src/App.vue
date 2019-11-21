@@ -125,6 +125,15 @@ export default {
               'hotel.settings',
             ],
           },
+          {
+            name: 'All Requests',
+            alt: 'View all room requests',
+            path: '/hotels/requests',
+            icon: 'list',
+            permissions: [
+              'hotel_request.read',
+            ],
+          },
         ],
       },
       {

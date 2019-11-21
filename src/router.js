@@ -8,6 +8,7 @@ import StaffDetail from './views/StaffDetail.vue';
 import DepartmentList from './views/DepartmentList.vue';
 import DepartmentDetail from './views/DepartmentDetail.vue';
 import HotelRequest from './views/Hotels/Request.vue';
+import HotelRequestList from './views/Hotels/List.vue';
 import EventCreate from './views/Events/Create.vue';
 import InitialSetup from './views/InitialSetup.vue';
 import DataImport from './views/Events/Import.vue';
@@ -71,6 +72,11 @@ const router = new Router({
       path: '/hotels/request',
       name: 'hotelsrequest',
       component: HotelRequest,
+    },
+    {
+      path: '/hotels/requests',
+      name: 'hotelrequestlist',
+      component: HotelRequestList,
     },
     {
       path: '/hotels/request/:badge',
