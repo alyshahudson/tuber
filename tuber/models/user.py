@@ -21,7 +21,7 @@ class Session(db.Model):
 
 class Permission(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    operation = db.Column(db.String(64), unique=True)
+    operation = db.Column(db.String(64))
     role = db.Column(db.Integer, db.ForeignKey('role.id'))
 
 class Role(db.Model):
