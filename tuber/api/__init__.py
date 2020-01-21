@@ -4,3 +4,4 @@ from .events import *
 from .importer import *
 from .departments import *
 from .emails import *
+from .shifts import *

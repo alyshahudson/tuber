@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app clipped-left>
-      <v-app-bar-nav-icon  @click.stop="drawer = !drawer" class="hidden-lg-and-up"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon  @click.stop="drawer = !drawer" class="hidden-lg-and-up"/>
       <v-toolbar-title>
         <span @click="$router.push({name: 'home'})" style="cursor: pointer" class="pr-md-10">Tuber</span>
       </v-toolbar-title>

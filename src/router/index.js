@@ -1,25 +1,27 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import Login from './views/Login.vue';
-import Logout from './views/Logout.vue';
-import StaffList from './views/StaffList.vue';
-import StaffDetail from './views/StaffDetail.vue';
-import DepartmentList from './views/DepartmentList.vue';
-import DepartmentDetail from './views/DepartmentDetail.vue';
-import HotelRequest from './views/Hotels/Request.vue';
-import EventCreate from './views/Events/Create.vue';
-import InitialSetup from './views/InitialSetup.vue';
-import DataImport from './views/Events/Import.vue';
-import RequestApprove from './views/Hotels/Approve.vue';
-import HotelAssign from './views/Hotels/Assign.vue';
-import HotelSettings from './views/Hotels/Settings.vue';
-import EventSettings from './views/Events/Settings.vue';
-import UserSettings from './views/Users/Settings.vue';
-import UserEdit from './views/Users/Edit.vue';
-import EmailList from './views/Emails/List.vue';
-import EmailSourceList from './views/Emails/SourceList.vue';
-import store from './store/store';
+import Home from '../views/Home.vue';
+import Login from '../views/Login.vue';
+import Logout from '../views/Logout.vue';
+import StaffList from '../views/StaffList.vue';
+import StaffDetail from '../views/StaffDetail.vue';
+import DepartmentList from '../views/DepartmentList.vue';
+import DepartmentDetail from '../views/DepartmentDetail.vue';
+import HotelRequest from '../views/Hotels/Request.vue';
+import EventCreate from '../views/Events/Create.vue';
+import InitialSetup from '../views/InitialSetup.vue';
+import DataImport from '../views/Events/Import.vue';
+import RequestApprove from '../views/Hotels/Approve.vue';
+import HotelAssign from '../views/Hotels/Assign.vue';
+import HotelSettings from '../views/Hotels/Settings.vue';
+import EventSettings from '../views/Events/Settings.vue';
+import UserSettings from '../views/Users/Settings.vue';
+import UserEdit from '../views/Users/Edit.vue';
+import EmailList from '../views/Emails/List.vue';
+import EmailSourceList from '../views/Emails/SourceList.vue';
+import store from '../store/store';
+
+import ShiftList from '../views/Shifts/List.vue';
 
 Vue.use(Router);
 
@@ -131,6 +133,11 @@ const router = new Router({
       path: '/emailsources',
       name: 'emailsourcelist',
       component: EmailSourceList,
+    },
+    {
+      path: '/shifts',
+      name: 'shiftsList',
+      component: ShiftList,
     },
   ],
 });
